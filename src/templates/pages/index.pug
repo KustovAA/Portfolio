@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="assets/styles/app.min.css")
+        title Главная
+    body
+        - 
+            var socials = [
+                {
+                    name: 'vk', 
+                    dimensions: {w:'31',h:'22'}
+                }, 
+                {
+                    name: 'github', 
+                    dimensions: {w:'26',h:'22'}
+                }, 
+                {
+                    name: 'in', 
+                    dimensions: {w:'24',h:'22'}
+                }
+            ]
+        .wrapper
+            .section.main
+                header.header
+                    ul.header__socials-list
+                        each social in socials
+                            li.header__socials-item
+                                svg.header__socials-icon(width=`${social.dimensions.w}` height=`${social.dimensions.h}`)
+                                    use(xlink:href=`assets/images/sprite.svg#${social.name}`)
+                    .header__menu-icon
+                        svg.header__menu-svg
+                            use(xlink:href='assets/images/sprite.svg#hamburger')
+                .hero
+                    .hero__photo
+                    .hero__name Андрей Кустов
+                    .hero__desc Личный сайт веб-разработчика
+                .arrow-down
+                    svg.arrow-down-icon
+                        use(xlink:href='assets/images/sprite.svg#arrow_down')
+            .section.about            
+                svg.triangle.triangle_fill_begie(viewbox="0 0 1000 100" preservAspectRatio="none")
+                    polygon(points='0,0 0,100 500,100')
+                svg.triangle.triangle_fill_white(viewbox="0 0 1000 100" preservAspectRatio="none")
+                    polygon(points='500,100 1000,0 1000,100')
+                .about__left
+                    .about__left-title-wrap
+                        .title-rect
+                        svg.svg-bg-big
+                            use(xlink:href='assets/images/sprite.svg#about_header')
+                        .about__left-title обо мне
+                        .title-rect
+                    .about__left-photo
+                    .about__title-wrap
+                        .title-rect
+                        .about__title кто я
+                        .title-rect
+                    .about__text.
+                                Я веб-разработчик из Москвы.
+                                Мне 20 лет. Я занимаюсь разработкой современных сайтов и приложений.
+                                Мне нравится делать интересные и современные проекты.
+                    .about__text.
+                                Этот сайт я сделал в рамках обучения школе онлайн-образования Loftschool.
+                                Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво.
+                .about__right
+                    .about__title-wrap
+                        .title-rect
+                        .about__title.about__title--long чем я могу быть вам полезен
+                        .title-rect
+                    .about__text.
+                                Больше всего меня привлекает Frontend разработка, 
+                                но я также знаком и могу решать не сложные задачи на Backend.
+                                Но давайте по порядку.
+                    ul.about__skills
+                        - 
+                            var skills = [
+                                {
+                                    title: 'Frontend',
+                                    techs: ['HTML5', 'CSS3', 'JavaScript']
+                                }, 
+                                {
+                                    title: 'Backend',
+                                    techs: ['Node.js', 'Mongo.db', 'PHP', 'MySQL']
+                                }, 
+                                {
+                                    title: 'Workflow',
+                                    techs: ['Git', 'Gulp', 'Webpack']
+                                }
+                            ]
+                        each skill in skills
+                            li.about__skill
+                                .about__skill-title= skill.title
+                                ul.about__skill-list
+                                    each tech in skill.techs
+                                        li.about__skill-item
+                                            svg(width='110' height='110' viewBox="0 0 110 110").svg-circle__body
+                                                circle(r="45" cx="50%" cy="50%").svg-circle__first-border
+                                                circle(r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)").svg-circle__second-border.circle-90
+                                            .about__skill-itemName= tech
+            .section.contacts
+                .contacts__contact
+                    .contacts__contact-title-wrap
+                        .title-rect
+                        .contacts__contact-title Контакты
+                        .title-rect
+                    - 
+                        var contacts = [
+                            {
+                                img: 'skype',
+                                text: 'killerbiga'
+                            },
+                            {
+                                img: 'envelope',
+                                text: 'kustovforwork@gmail.com'
+                            },
+                            {
+                                img: 'phone',
+                                text: '+7 916 169 74 59'
+                            },
+                            {
+                                img: 'map_marker',
+                                text: 'г.Москва, ул. Дениса Давыдова, д.1'
+                            }
+                        ]
+                    ul.contacts__contact-list
+                        each contact in contacts
+                            li.contacts__contact-item
+                                svg.contacts__contact-item-svg
+                                    use(xlink:href=`assets/images/sprite.svg#${contact.img}`)
+                                .contacts__contact-item-text= contact.text
+                    .contacts__map
+                    .contacts__footer
+                        - var points = ['Мои работы', 'Обо мне', 'Блог', 'Авторизация']
+                        ul.contacts__menu-list
+                            each point in points
+                                li.contacts__menu-item=point
+                        ul.contacts__socials-list
+                            each social in socials
+                                li.contacts__socials-item
+                                    svg.contacts__socials-icon
+                                        use(xlink:href=`assets/images/sprite.svg#${social.name}`)
+                        .contacts__border
+                        .contacts__text.
+                                        Я веб-разработчик из Москвы, и этот сайт я сделал в рамках обучения 
+                                        в школе онлайн-образования Loftschool.
+                        .contacts__text.contacts__text--copy.
+                                        © Кустов Андрей | создано с любовью в Loftschool | 2018
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    script(src="assets/scripts/bundle.js")

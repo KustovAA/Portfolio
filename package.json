@@ -1,0 +1,42 @@
+{
+  "name": "Portfolio",
+  "version": "1.0.0",
+  "description": "**Студент**: Кустов Андрей",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KustovAA/Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KustovAA/Portfolio/issues"
+  },
+  "homepage": "https://github.com/KustovAA/Portfolio#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "eslint": "^4.18.2",
+    "eslint-loader": "^2.0.0",
+    "gulp": "^4.0.0",
+    "gulp-cheerio": "^0.6.3",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-svg-sprite": "^1.3.7",
+    "gulp-svgmin": "^1.2.4",
+    "gulp-webpack": "^1.5.0",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^4.1.1"
+  }
+}
