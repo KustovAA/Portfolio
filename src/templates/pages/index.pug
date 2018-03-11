@@ -131,8 +131,9 @@ html(lang="en")
                                     use(xlink:href=`assets/images/sprite.svg#${contact.img}`)
                                 .contacts__contact-item-text= contact.text
                     .contacts__map
-                    .contacts__footer
-                        - var points = ['Мои работы', 'Обо мне', 'Блог', 'Авторизация']
+                .contacts__footer
+                    - var points = ['Мои работы', 'Обо мне', 'Блог', 'Авторизация']
+                    .contacts__footer-left
                         ul.contacts__menu-list
                             each point in points
                                 li.contacts__menu-item=point
@@ -141,12 +142,13 @@ html(lang="en")
                                 li.contacts__socials-item
                                     svg.contacts__socials-icon
                                         use(xlink:href=`assets/images/sprite.svg#${social.name}`)
-                        .contacts__border
+                    .contacts__border
+                    .contacts__footer-right
                         .contacts__text.
                                         Я веб-разработчик из Москвы, и этот сайт я сделал в рамках обучения 
                                         в школе онлайн-образования Loftschool.
                         .contacts__text.contacts__text--copy.
-                                        © Кустов Андрей | создано с любовью в Loftschool | 2018
+                                    © Кустов Андрей | создано с любовью в Loftschool | 2018
 
 
     

@@ -1,3 +1,6 @@
+@import 'config/variables.scss';
+@import 'config/mixins.scss';
+
 * {
     box-sizing: border-box;
 }
@@ -39,18 +42,45 @@ ul {
 
 .wrapper {
     width: 100%;
-    background: url(../images/layout.png);
+
+    @include desktop {
+        background: url(../images/layout_desktop.png);
+    }
+
+    @include laptop {
+        background: url(../images/layout_laptop.png);
+    }
+
+    @include ipad {
+        background: url(../images/layout_ipad.png);
+    }
+
+    @include iphone {
+        background: url(../images/layout_iphone.png);
+    }
 }
 
 .section {
     display: flex;
-    flex-flow: column nowrap;
     width: 100%;
     position: relative;
 }
 
 .main {
     height: 100vh;
+    flex-flow: column nowrap;
+
+    @include desktop {
+        height: 605px;
+    }
+
+    @include ipad {
+        height: 691px;
+    }
+
+    @include iphone {
+        height: 100vh;
+    }
 }
 
 .header {
@@ -137,6 +167,32 @@ ul {
 
 .about {
     background: #efeee9;
+
+    @include desktop {
+        justify-content: space-around;
+    }
+
+    @include ipad {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__left, &__right {
+        @include desktop {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            width: 450px;
+        }
+
+        @include ipad {
+            width: 472px;
+        }
+
+        @include iphone {
+            width: auto;
+        }
+    }
 }
 
 .svg-bg-big {
@@ -169,9 +225,24 @@ ul {
 }
 
 .about__left-photo {
-    height: 280px;
-    width: 100%;
-    background: url(../images/pers_photo-big.png) no-repeat;
+
+    @include desktop {
+        height: 400px;
+        width: 450px;
+        background: url(../images/pers_photo-big_laptop.png) no-repeat;
+    }
+
+    @include ipad {
+        height: 420px;
+        width: 472px;
+        background: url(../images/pers_photo-big_ipad.png) no-repeat;
+    }
+
+    @include iphone {
+        height: 280px;
+        width: 100%;
+        background: url(../images/pers_photo-big_iphone.png) no-repeat;
+    }
 }
 
 .about__title-wrap {
@@ -222,8 +293,16 @@ ul {
   
 .about__skill-list {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    width: 100%;
+
+    @include ipad {
+        justify-content: center;
+    }
+
+    @include iphone {
+        justify-content: space-around;
+    }
 }
 
 .about__skill-item {
@@ -244,15 +323,48 @@ ul {
     }
 }
 
-.contacts {
-    background: #fff;
-    position: relative;
-}
+.contacts { 
+    flex-flow: column nowrap;
 
+    @include desktop {
+        background: url(../images/map_desktop.png);
+        height: 975px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include laptop {
+        background: url(../images/map_laptop.png);
+    }
+
+    @include ipad {
+        background: url(../images/map_ipad.png);
+    }
+
+    @include iphone {
+        background: #fff;
+        justify-content: flex-start;
+    }
+}
+  
 .contacts__contact {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    border-radius: 5px;
+    background-color: rgb(252, 252, 252);
+    opacity: 0.85;
+    
+
+    @include ipad {
+        margin-bottom: 150px;
+        align-items: center;
+        width: 349px;
+    }
+
+    @include iphone {
+        margin-bottom: 0;
+        width: auto;
+    }
 }
 
 .contacts__contact-title-wrap {
@@ -298,21 +410,44 @@ ul {
 }
 
 .contacts__map {
-    height: 620px;
-    background: url(../images/map.png) no-repeat;
+    @include iphone {
+        height: 620px;
+        width: 100%;
+        background: url(../images/map_iphone.png) no-repeat;
+    }  
 }
 
 .contacts__footer {
     position: absolute;
     bottom: 0;
-    height: 270px;
     width: 100%;
     background-color: rgb(55, 62, 66);
     opacity: 0.85;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
+
+    @include desktop {
+        height: 150px;
+        padding: 0 30px;
+    }
+
+    @include iphone {
+        height: 270px;
+        padding: 0;
+        padding-top: 30px;
+        align-items: center;
+    }
+
+    &-left, &-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include ipad {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
 }
 
 .contacts__menu-list {
@@ -354,7 +489,7 @@ ul {
 .contacts__border {
     background-color: rgb(255, 255, 255);
     opacity: 0.1;
-    height: 1px;
+    height: 2px;
     width: 100%;
     margin-top: 25px;
 }
@@ -364,11 +499,27 @@ ul {
     font-family: "Roboto";
     color: rgba(255, 255, 255, 0.5);
     line-height: 1.846;
-    text-align: center;
-    width: 300px; 
+
+    @include desktop {
+        width: 500px;
+    }
+
+    @include ipad {
+        text-align: center;
+    }
+
+    @include iphone {
+        width: 300px;
+    }
 
     &--copy {
-        width: 250px;
+        @include desktop {
+            width: auto;
+        }
+
+        @include iphone {
+            width: 250px;
+        }
     }
 }
 

@@ -1,0 +1,23 @@
+@mixin desktop {
+    @media screen and (max-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (max-width: $laptop) {
+        @content;
+    }
+}
+
+@mixin ipad {
+    @media screen and (max-width: $ipad) {
+        @content;
+    }
+}
+
+@mixin iphone {
+    @media screen and (max-width: $iphone) {
+        @content;
+    }
+}
