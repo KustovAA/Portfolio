@@ -1,0 +1,234 @@
+.works {
+    flex-direction: column;
+}
+
+.works__title-wrap {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #faf8f0;
+
+    @include iphone {
+        height: 120px;
+    }
+}
+
+.works__svg-bg {
+    position: absolute;
+    fill: darken(#f0eee7, 5%);
+    width: 480px;
+    height: 160px;
+
+    @include ipad {
+        width: 100%;
+    }
+}
+  
+
+.works__title {
+    font-size: 62.792px;
+    font-family: "BERNIER Regular";
+    color: rgb(55, 62, 66);
+    line-height: 0.889;
+    width: 285px;
+    text-align: center;
+    z-index: 200;
+    margin: 0 20px;
+
+    @include ipad {
+        font-size: 35px;
+        width: 160px;
+    }
+}
+
+.works__slider-wrap {
+    width: 100%;
+    height: 750px;
+    display: flex;
+
+    @include ipad {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+.works__slider-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f0efe9;
+
+    @include ipad {
+        width: 100%;
+        padding: 50px 0;
+    }
+}
+
+.works__slider-title-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 425px;
+
+    @include ipad {
+        width: 522px;
+    }
+
+    @include iphone {
+        width: 265px;
+    }
+}
+  
+.works__slider-title {
+    font-size: 35px;
+    font-family: "BERNIER Regular";
+    color: rgb(69, 90, 100);
+    line-height: 1.171;
+    text-align: center;
+    width: 280px;
+    margin: 0 20px;
+
+    @include ipad {
+        width: 450px;
+    }
+
+    @include iphone {
+        font-size: 21px;
+        width: 185px;
+    }
+}
+
+.works__slider-desc {
+    height: 50px;
+    width: 100%;
+    border-top: rgba(0, 150, 136, 0.3) 1px solid;
+    border-bottom: rgba(0, 150, 136, 0.3) 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 425px;
+    margin: 40px 0;
+
+    p {
+        font-size: 15.791px;
+        font-family: "Roboto";
+        color: rgb(32, 181, 161);
+    }
+
+    @include ipad {
+        margin: 20px 0;
+    }
+
+    @include iphone {
+        width: 312px;
+    }
+}
+
+.works__slider-btn {
+    border-radius: 5px;
+    background-color: rgb(0, 191, 165);
+    width: 200px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .3s;
+
+    p {
+        font-size: 16px;
+        font-family: "Roboto";
+        color: rgb(255, 255, 255);
+    }
+    
+    &-svg {
+        width: 20px;
+        height: 20px;
+        fill: rgb(255, 255, 255);
+        margin-right: 10px;
+    }
+
+    &:hover {
+        background-color: darken(rgb(0, 191, 165), 5%);
+    }
+}
+
+.works__slider-right {
+    width: 50%;
+    background: #efebe0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include ipad {
+        width: 100%;
+    }
+}
+
+.works__slider-main {
+    height: 410px;
+    width: 100%;
+    background: url(../images/big-work.png) no-repeat;
+    background-position-x: center;
+    margin-bottom: 60px;
+
+    @include laptop {
+        background-image: url(../images/big-work_laptop.png);
+    }
+
+    @include ipad {
+        display: none;
+    }
+
+    &--ipad {
+        display: none;
+
+        @include ipad {
+            display: block;
+            background-position-y: center;
+        }
+    }
+}
+
+.works__slider-side-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(#bcbbb7, .6);
+}
+
+.works__slider-side {
+    width: 100%;
+    height: 225px;
+    display: flex;
+    position: relative;
+
+    &-left, &-right {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-left {
+        background: url(../images/small-work-left.png) no-repeat;
+        background-position-x: center;
+
+        @include laptop {
+            background-image: url(../images/small-work-left_laptop.png);
+        }
+    }
+
+    &-right {
+        background: url(../images/small-work-right.png) no-repeat;
+        background-position-x: center;
+
+        @include laptop {
+            background-image: url(../images/small-work-right_laptop.png);
+        }
+    }
+}

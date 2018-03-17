@@ -36,6 +36,10 @@ const paths = {
     scripts: {
         src: 'src/scripts/**/*.js',
         dest: 'build/assets/scripts/'
+    },
+    fonts: {
+        src: 'src/fonts/**/*.*',
+        dest: 'build/assets/fonts'
     }
 }
 
@@ -48,10 +52,20 @@ function templates() {
 function styles() {
     return gulp.src('./src/styles/app.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass(
+            {
+                outputStyle: 'compressed', 
+                includePaths: require('node-normalize-scss').includePaths
+            }
+        ))
         .pipe(sourcemaps.write())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(paths.styles.dest))
+}
+
+function fonts() {
+    return gulp.src(paths.fonts.src)
+        .pipe(gulp.dest(paths.fonts.dest))
 }
 
 function clean() {
@@ -130,9 +144,10 @@ exports.styles = styles;
 exports.clean = clean;
 exports.images = images;
 exports.svg = svg;
+exports.fonts = fonts;
 
 gulp.task('default', gulp.series(
     clean,
-    gulp.parallel(styles, templates, images, scripts, svg),
+    gulp.parallel(styles, templates, images, scripts, svg, fonts),
     gulp.parallel(watch, server)
 ));

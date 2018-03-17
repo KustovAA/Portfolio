@@ -1,0 +1,89 @@
+.feedback {
+    height: 1385px;
+    background: url(../images/bg-about.png) no-repeat;
+    flex-direction: column;
+    align-items: center;
+    background-position-y: 100px;
+
+    @include iphone {
+        height: 1477px;
+    }
+}
+
+.feedback__title-wrap {
+    background: none;
+}
+
+.feedback__comments {
+    width: 780px;
+    margin-top: 110px;
+
+    @include ipad {
+        width: 680px;
+    }
+
+    @include iphone {
+        width: 280px;
+        margin-top: 10px;
+    }
+}
+
+.feedback__comments-list {
+    display: flex;
+
+    @include iphone {
+        flex-direction: column;
+    }
+}
+
+.feedback__comments-item {
+    width: 380px;
+
+    @include ipad {
+        width: 320px;
+    }
+
+    @include iphone {
+        width: 280px;
+
+        &:first-child {
+            margin-bottom: 40px;
+
+            @include iphone {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.feedback__comments-text {
+    font-size: 16px;
+    font-family: "Roboto";
+    color: rgb(69, 90, 100);
+    line-height: 1.625;
+}
+
+.feedback__comments-hero {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.feedback__comments-hero-avatar {
+    border-radius: 50%;
+    width: 77px;
+    height: 77px;
+    margin-right: 20px;
+}
+  
+.feedback__comments-hero-info {
+    font-size: 16px;
+    font-family: "Roboto";
+    color: rgb(32, 181, 161);
+    line-height: 1.5;
+
+    &-name {
+        font-weight: bold;
+    }
+}
+  
