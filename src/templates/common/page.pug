@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic" rel="stylesheet")
+        link(rel="stylesheet", href="assets/styles/app.min.css")
+        block title
+            title Главная
+    body
+        .wrapper
+            include main
+            block content
+            .footer
+                - var points = ['Мои работы', 'Обо мне', 'Блог', 'Авторизация']
+                .footer__left
+                    ul.footer__menu-list
+                        each point in points
+                            li.footer__menu-item=point
+                    ul.footer__socials-list
+                        each social in socials
+                            li.footer__socials-item
+                                svg.footer__socials-icon
+                                    use(xlink:href=`assets/images/sprite.svg#${social.name}`)
+                .footer__border
+                .footer__right
+                    .footer__text.
+                                    Я веб-разработчик из Москвы, и этот сайт я сделал в рамках обучения 
+                                    в школе онлайн-образования Loftschool.
+                    .footer__text.footer__text--copy.
+                                © Кустов Андрей | создано с любовью в Loftschool | 2018
+                
+    script(src="assets/scripts/bundle.js")

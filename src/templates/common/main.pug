@@ -1,0 +1,33 @@
+- 
+    var socials = [
+        {
+            name: 'vk', 
+            dimensions: {w:'31',h:'22'}
+        }, 
+        {
+            name: 'github', 
+            dimensions: {w:'26',h:'22'}
+        }, 
+        {
+            name: 'in', 
+            dimensions: {w:'24',h:'22'}
+        }
+    ]
+section.section.main
+    header.header
+        ul.header__socials-list
+            each social in socials
+                li.header__socials-item
+                    svg.header__socials-icon(width=`${social.dimensions.w}` height=`${social.dimensions.h}`)
+                        use(xlink:href=`assets/images/sprite.svg#${social.name}`)
+        .header__menu-icon
+            svg.header__menu-svg
+                use(xlink:href='assets/images/sprite.svg#hamburger')
+    .hero
+        .hero__photo
+        block hero__text
+            .hero__name Андрей Кустов
+            .hero__desc Личный сайт веб-разработчика
+    .arrow-down
+        svg.arrow-down-icon
+            use(xlink:href='assets/images/sprite.svg#arrow_down')

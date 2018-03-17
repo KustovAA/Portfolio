@@ -1,0 +1,192 @@
+.contacts { 
+    flex-flow: column nowrap;
+    background: url(../images/map_desktop.png);
+    height: 975px;
+    justify-content: center;
+    align-items: center;
+
+    @include laptop {
+        background: url(../images/map_laptop.png);
+    }
+
+    @include ipad {
+        background: url(../images/map_ipad.png);
+    }
+
+    @include iphone {
+        background: #fff;
+        justify-content: flex-start;
+    }
+}
+  
+.contacts__contact {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: rgb(252, 252, 252);
+    opacity: 0.85;
+    
+
+    @include ipad {
+        margin-bottom: 150px;
+        align-items: center;
+        width: 349px;
+    }
+
+    @include iphone {
+        margin-bottom: 0;
+        width: auto;
+        background-color: rgb(255, 255, 255);
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+.contacts__contact-title-wrap {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts__contact-title {
+    font-size: 35px;
+    font-family: "BERNIER Regular";
+    color: rgb(55, 62, 66);
+    line-height: 1.2;
+    margin: 0 20px;
+}
+  
+.contacts__contact-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts__contact-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.contacts__contact-item-svg {
+    width: 25px;
+    height: 20px;
+    fill: #00bea4;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.contacts__contact-item-text {
+    font-size: 16px;
+    font-family: "Roboto";
+    color: rgba(69, 90, 100, 0.8);
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.contacts__map {
+    @include iphone {
+        height: 620px;
+        width: 100%;
+        background: url(../images/map_iphone.png) no-repeat;
+        background-size: cover;
+    }  
+}
+
+.contacts__footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(55, 62, 66);
+    opacity: 0.85;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    padding: 0 30px;
+
+    @include iphone {
+        height: 270px;
+        padding: 0;
+        padding-top: 30px;
+        align-items: center;
+    }
+
+    &-left, &-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include ipad {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+
+.contacts__menu-list {
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+}
+
+.contacts__menu-item {
+    font-size: 13px;
+    font-family: "Roboto";
+    color: rgb(255, 255, 255);
+    line-height: 1.822;
+}
+
+.contacts__socials-list {
+    display: flex;
+    width: 140px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.contacts__socials-item {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #aaadaf;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts__socials-icon {
+    width: 20px;
+    height: 20px;
+    fill: #aaadaf;
+} 
+
+.contacts__border {
+    background-color: rgb(255, 255, 255);
+    opacity: 0.1;
+    height: 2px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.contacts__text {
+    font-size: 13px;
+    font-family: "Roboto";
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.846;
+    width: 500px;
+
+    @include ipad {
+        text-align: center;
+    }
+
+    @include iphone {
+        width: 300px;
+    }
+
+    &--copy {
+        width: auto;
+
+        @include iphone {
+            width: 250px;
+        }
+    }
+}

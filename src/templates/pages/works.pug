@@ -1,0 +1,94 @@
+extends ../common/page
+
+block title
+    title Мои работы
+
+block content
+    section.section.works
+        svg.triangle.triangle_fill_begie-light(viewbox="0 0 1000 100" preservAspectRatio="none")
+            polygon(points='0,0 0,100 500,100')
+        svg.triangle.triangle_fill_begie-light(viewbox="0 0 1000 100" preservAspectRatio="none")
+            polygon(points='500,100 1000,0 1000,100')
+        .works__title-wrap
+            .title-rect
+            svg.works__svg-bg
+                use(xlink:href='assets/images/sprite.svg#works_header')
+            .works__title Мои работы
+            .title-rect
+        .works__slider-wrap
+            .works__slider-main.works__slider-main--ipad
+            .works__slider-left
+                .works__slider-title-wrap
+                    .title-rect
+                    .works__slider-title Сайт школы онлайн образования
+                    .title-rect
+                .works__slider-desc 
+                    p HTML, CSS, JavaScript
+                .works__slider-btn
+                    svg.works__slider-btn-svg
+                        use(xlink:href='assets/images/sprite.svg#link')
+                    p Посмотреть сайт
+            .works__slider-right
+                .works__slider-main
+                .works__slider-side
+                    .works__slider-side-overlay
+                    .works__slider-side-left
+                            svg.arrow-icon.arrow-icon-down.arrow-icon-white
+                                use(xlink:href='assets/images/sprite.svg#arrow_down')
+                    .works__slider-side-right
+                            svg.arrow-icon.arrow-icon-up.arrow-icon-white
+                                use(xlink:href='assets/images/sprite.svg#arrow_down')
+    section.section.feedback
+        .works__title-wrap.feedback__title-wrap
+            .title-rect
+            svg.works__svg-bg
+                use(xlink:href='assets/images/sprite.svg#about_header')
+            .works__title Что обо мне говорят
+            .title-rect
+        .feedback__comments
+            - 
+                var comments = [
+                    {
+                        comment: 'Этот парень проходил обучение веб-разработке не где-то, а в Loftschool, 2 месяца толька самых тяжелых испытаний и бессонных ночей!',
+                        info: {
+                            name: 'Ковальчук Дмитрий',
+                            post: 'основатель Loftschool'
+                        }, 
+                        photo: 'kov-avatar'
+                    }, 
+                    {
+                        comment: 'Этот код выдержит любые испытания. Только, пожалуйста, не запускайте на слишком старых браузерах!',
+                        info: {
+                            name: 'Сабанцев Владимир',
+                            post: 'преподаватель'
+                        }, 
+                        photo: 'sab-avatar'
+                    }
+                ]
+            ul.feedback__comments-list
+                each comment in comments
+                    li.feedback__comments-item
+                        .feedback__comments-text= comment.comment
+                        .feedback__comments-hero
+                            .feedback__comments-hero-avatar(style=`background-image: url(assets/images/${comment.photo}.png);`)
+                            .feedback__comments-hero-info
+                                .feedback__comments-hero-info-name= comment.info.name
+                                .feedback__comments-hero-info-post= comment.info.post
+        form.form
+            .form__wrapper
+                .form__title-wrap
+                    .title-rect
+                    .form__title Связаться со мной
+                    .title-rect
+                input.form__input(type="text" placeholder="Имя")
+                input.form__input(type="text" placeholder="Email")
+                textarea.form__textarea(type="text" placeholder="Ваше сообщение")
+                .form__btns
+                    .form__btn.form__btn--left 
+                        p Отправить
+                    .form__btn.form__btn--right 
+                        p Очистить
+        .arrow
+            svg.arrow-icon.arrow-icon-up
+                use(xlink:href='assets/images/sprite.svg#arrow_down')
+                
