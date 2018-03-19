@@ -2,15 +2,18 @@
     var socials = [
         {
             name: 'vk', 
-            dimensions: {w:'31',h:'22'}
+            dimensions: {w:'31',h:'22'},
+            link: 'https://vk.com/id184614170'
         }, 
         {
             name: 'github', 
-            dimensions: {w:'26',h:'22'}
+            dimensions: {w:'26',h:'22'},
+            link: 'https://github.com/KustovAA'
         }, 
         {
             name: 'in', 
-            dimensions: {w:'24',h:'22'}
+            dimensions: {w:'24',h:'22'},
+            link: 'https://linkedin.com/'
         }
     ]
 section.section.main
@@ -18,8 +21,9 @@ section.section.main
         ul.header__socials-list
             each social in socials
                 li.header__socials-item
-                    svg.header__socials-icon(width=`${social.dimensions.w}` height=`${social.dimensions.h}`)
-                        use(xlink:href=`assets/images/sprite.svg#${social.name}`)
+                    a(href=social.link target='_blank').header__socials-link
+                        svg.header__socials-icon(width=`${social.dimensions.w}` height=`${social.dimensions.h}`)
+                            use(xlink:href=`assets/images/sprite.svg#${social.name}`)
         .header__menu-icon
             svg.header__menu-svg
                 use(xlink:href='assets/images/sprite.svg#hamburger')

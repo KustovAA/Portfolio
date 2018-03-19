@@ -21,8 +21,9 @@ html(lang="en")
                     ul.footer__socials-list
                         each social in socials
                             li.footer__socials-item
-                                svg.footer__socials-icon
-                                    use(xlink:href=`assets/images/sprite.svg#${social.name}`)
+                                a(href=social.link target='_blank').header__socials-link
+                                    svg.footer__socials-icon
+                                        use(xlink:href=`assets/images/sprite.svg#${social.name}`)
                 .footer__border
                 .footer__right
                     .footer__text.

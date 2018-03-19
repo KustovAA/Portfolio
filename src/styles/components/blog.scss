@@ -36,8 +36,12 @@
     top: 70px;
     left: 115px;
 
-    @include laptop {
+    @media screen and (max-width: 1500px) {
         left: 40px;
+    }
+
+    @media screen and (max-width: 1100px) {
+        left: 20px;
     }
 
     @include ipad {
@@ -70,8 +74,16 @@
         width: 980px;
         margin-left: 120px;
 
+        @media screen and (max-width: 1500px) {
+            width: 780px;
+        }
+
         @include laptop {
             width: 680px;
+        }
+
+        @media screen and (max-width: 1100px) {
+            width: 480px;
         }
 
         @include ipad {
