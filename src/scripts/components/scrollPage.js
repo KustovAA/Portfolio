@@ -31,22 +31,22 @@ let scrollPage = (() => {
             }
         });
     }
-
-    
         
     const handler = () => { 
-        arrowDown.addEventListener('click', e => {
-            let start = performance.now();
-            animate({
-                duration: 1000,
-                timing: function(timeFraction) {
-                    return timeFraction;
-                },
-                draw: function(progress) {
-                    window.scrollTo(0, progress * (startSection.clientHeight+1));
-                }
-            });
-        })
+        if (arrowDown) {
+            arrowDown.addEventListener('click', e => {
+                let start = performance.now();
+                animate({
+                    duration: 1000,
+                    timing: function(timeFraction) {
+                        return timeFraction;
+                    },
+                    draw: function(progress) {
+                        window.scrollTo(0, progress * (startSection.clientHeight+1));
+                    }
+                });
+            })
+        }
     }
 
     return { handler }

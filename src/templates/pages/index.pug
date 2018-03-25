@@ -9,55 +9,60 @@ html(lang="en")
         title Добро пожаловать
     body
         .wrapper
-            .welcome__parallax
             section.section.welcome
+                .welcome__parallax
                 .authorize__button 
                     p Авторизоваться
-                .welcome__hero-nav.hero-nav
-                    .hero-nav__pic
-                    .hero-nav__text
-                        .hero-nav__name Андрей Кустов
-                        .hero-nav__desc Личный сайт веб-разработчика
-                    - 
-                        var socials =  [
-                            {
-                                name: 'vk', 
-                                dimensions: {w:'31',h:'22'},
-                                link: 'https://vk.com/id184614170'
-                            }, 
-                            {
-                                name: 'github', 
-                                dimensions: {w:'26',h:'22'},
-                                link: 'https://github.com/KustovAA'
-                            }, 
-                            {
-                                name: 'in', 
-                                dimensions: {w:'24',h:'22'},
-                                link: 'https://linkedin.com/'
-                            }
-                        ];
-                        var pages = [
-                            {
-                                name: 'Мои работы', 
-                                link: 'works'
-                            }, 
-                            {
-                                name: 'Обо мне', 
-                                link: 'about'
-                            }, 
-                            {
-                                name: 'Блог', 
-                                link: 'blog'
-                            }
-                        ];
-                    ul.hero-nav__socials-list
-                        each social in socials
-                            li.hero-nav__social-item
-                                a(href=social.link target='_blank').header__socials-link
-                                    svg.hero-nav__social-item-icon(width=`${social.dimensions.w}` height=`${social.dimensions.h}`)
-                                        use(xlink:href=`assets/images/sprite.svg#${social.name}`)
-                    ul.hero-nav__page-list
-                        each page in pages
-                            li.hero-nav__page-item
-                                a(href=`${page.link}.html`).hero-nav__page-item-link= page.name
+                .welcome__hero-nav
+                    .hero-nav.active
+                        .hero-nav__pic
+                        .hero-nav__text
+                            .hero-nav__name Андрей Кустов
+                            .hero-nav__desc Личный сайт веб-разработчика
+                        - 
+                            var socials =  [
+                                {
+                                    name: 'vk', 
+                                    dimensions: {w:'31',h:'22'},
+                                    link: 'https://vk.com/id184614170'
+                                }, 
+                                {
+                                    name: 'github', 
+                                    dimensions: {w:'26',h:'22'},
+                                    link: 'https://github.com/KustovAA'
+                                }, 
+                                {
+                                    name: 'in', 
+                                    dimensions: {w:'24',h:'22'},
+                                    link: 'https://linkedin.com/'
+                                }
+                            ];
+                            var pages = [
+                                {
+                                    name: 'Мои работы', 
+                                    link: 'works'
+                                }, 
+                                {
+                                    name: 'Обо мне', 
+                                    link: 'about'
+                                }, 
+                                {
+                                    name: 'Блог', 
+                                    link: 'blog'
+                                }
+                            ];
+                        ul.hero-nav__socials-list
+                            each social in socials
+                                li.hero-nav__social-item
+                                    a(href=social.link target='_blank').header__socials-link
+                                        svg.hero-nav__social-item-icon(width=`${social.dimensions.w}` height=`${social.dimensions.h}`)
+                                            use(xlink:href=`assets/images/sprite.svg#${social.name}`)
+                        ul.hero-nav__page-list
+                            each page in pages
+                                li.hero-nav__page-item
+                                    a(href=`${page.link}.html`).hero-nav__page-item-link= page.name
+                    .hero__login.login
+                        include ../components/login
                 .welcome__footer © Кустов Андрей | создано с любовью в Loftschool | 2018
+
+        script(src="assets/scripts/bundle.js")

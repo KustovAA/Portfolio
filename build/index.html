@@ -10,39 +10,99 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<div class="welcome__parallax"></div>
 			<section class="section welcome">
+				<div class="welcome__parallax"></div>
 				<div class="authorize__button"> 
 					<p>Авторизоваться</p>
 				</div>
-				<div class="welcome__hero-nav hero-nav">
-					<div class="hero-nav__pic"></div>
-					<div class="hero-nav__text">
-						<div class="hero-nav__name">Андрей Кустов</div>
-						<div class="hero-nav__desc">Личный сайт веб-разработчика</div>
+				<div class="welcome__hero-nav">
+					<div class="hero-nav active">
+						<div class="hero-nav__pic"></div>
+						<div class="hero-nav__text">
+							<div class="hero-nav__name">Андрей Кустов</div>
+							<div class="hero-nav__desc">Личный сайт веб-разработчика</div>
+						</div>
+						<ul class="hero-nav__socials-list">
+							<li class="hero-nav__social-item"><a class="header__socials-link" href="https://vk.com/id184614170" target="_blank">
+									<svg class="hero-nav__social-item-icon" width="31" height="22">
+										<use xlink:href="assets/images/sprite.svg#vk"></use>
+									</svg></a></li>
+							<li class="hero-nav__social-item"><a class="header__socials-link" href="https://github.com/KustovAA" target="_blank">
+									<svg class="hero-nav__social-item-icon" width="26" height="22">
+										<use xlink:href="assets/images/sprite.svg#github"></use>
+									</svg></a></li>
+							<li class="hero-nav__social-item"><a class="header__socials-link" href="https://linkedin.com/" target="_blank">
+									<svg class="hero-nav__social-item-icon" width="24" height="22">
+										<use xlink:href="assets/images/sprite.svg#in"></use>
+									</svg></a></li>
+						</ul>
+						<ul class="hero-nav__page-list">
+							<li class="hero-nav__page-item"><a class="hero-nav__page-item-link" href="works.html">Мои работы</a></li>
+							<li class="hero-nav__page-item"><a class="hero-nav__page-item-link" href="about.html">Обо мне</a></li>
+							<li class="hero-nav__page-item"><a class="hero-nav__page-item-link" href="blog.html">Блог</a></li>
+						</ul>
 					</div>
-					<ul class="hero-nav__socials-list">
-						<li class="hero-nav__social-item"><a class="header__socials-link" href="https://vk.com/id184614170" target="_blank">
-								<svg class="hero-nav__social-item-icon" width="31" height="22">
-									<use xlink:href="assets/images/sprite.svg#vk"></use>
-								</svg></a></li>
-						<li class="hero-nav__social-item"><a class="header__socials-link" href="https://github.com/KustovAA" target="_blank">
-								<svg class="hero-nav__social-item-icon" width="26" height="22">
-									<use xlink:href="assets/images/sprite.svg#github"></use>
-								</svg></a></li>
-						<li class="hero-nav__social-item"><a class="header__socials-link" href="https://linkedin.com/" target="_blank">
-								<svg class="hero-nav__social-item-icon" width="24" height="22">
-									<use xlink:href="assets/images/sprite.svg#in"></use>
-								</svg></a></li>
-					</ul>
-					<ul class="hero-nav__page-list">
-						<li class="hero-nav__page-item"><a class="hero-nav__page-item-link" href="works.html">Мои работы</a></li>
-						<li class="hero-nav__page-item"><a class="hero-nav__page-item-link" href="about.html">Обо мне</a></li>
-						<li class="hero-nav__page-item"><a class="hero-nav__page-item-link" href="blog.html">Блог</a></li>
-					</ul>
+					<div class="hero__login login">
+						<div class="login__title-wrap">
+							<div class="title-rect"></div>
+							<div class="login__title">Авторизуйтесь</div>
+							<div class="title-rect"></div>
+						</div>
+						<div class="login__input-wrap">
+							<div class="login__logo">
+								<svg class="login__logo-svg" width="15" height="17">
+									<use xlink:href="assets/images/sprite.svg#login"></use>
+								</svg>
+							</div>
+							<input class="login__input" type="text" placeholder="Логин"/>
+						</div>
+						<div class="login__input-wrap">
+							<div class="login__logo">
+								<svg class="login__logo-svg" width="18" height="17">
+									<use xlink:href="assets/images/sprite.svg#password"></use>
+								</svg>
+							</div>
+							<input class="login__input" type="text" placeholder="Пароль"/>
+						</div>
+						<div class="login__checkbox-wrap">
+							<label class="login__label"> 
+								<input class="login__checkbox" type="checkbox" checked="checked"/>
+								<div class="login__checkbox-fake">
+									<svg class="login__checkbox-fake-svg" width="10" height="10">
+										<use xlink:href="assets/images/sprite.svg#check"></use>
+									</svg>
+								</div>
+								<div class="login__text">Я человек</div>
+							</label>
+						</div>
+						<div class="login__sure">
+							<div class="login__text login__text--bold">Вы точно не робот?</div>
+						</div>
+						<div class="login__sure">
+							<label class="login__label">
+								<input class="login__input-radio" type="radio" name="are-you-sure" value="yes"/>
+								<div class="login__radio-fake"></div>
+								<div class="login__text">Да </div>
+							</label>
+							<label class="login__label">
+								<input class="login__input-radio" type="radio" name="are-you-sure" value="no" checked="checked"/>
+								<div class="login__radio-fake"></div>
+								<div class="login__text">Не уверен</div>
+							</label>
+						</div>
+						<div class="login__btns">
+							<div class="login__btn resume"> 
+								<p>На главную</p>
+							</div>
+							<div class="login__btn authorize"> 
+								<p>Войти</p>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="welcome__footer">© Кустов Андрей | создано с любовью в Loftschool | 2018</div>
 			</section>
 		</div>
+		<script src="assets/scripts/bundle.js"></script>
 	</body>
 </html>

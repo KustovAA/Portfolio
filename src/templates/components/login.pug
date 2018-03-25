@@ -1,0 +1,37 @@
+.login__title-wrap
+    .title-rect
+    .login__title Авторизуйтесь
+    .title-rect
+.login__input-wrap
+    .login__logo
+        svg.login__logo-svg(width='15' height='17')
+            use(xlink:href='assets/images/sprite.svg#login')
+    input.login__input(type="text" placeholder="Логин")
+.login__input-wrap
+    .login__logo
+        svg.login__logo-svg(width='18' height='17')
+            use(xlink:href='assets/images/sprite.svg#password')
+    input.login__input(type="text" placeholder="Пароль")
+.login__checkbox-wrap
+    label.login__label 
+        input(type="checkbox" checked).login__checkbox
+        .login__checkbox-fake
+            svg(width='10' height='10').login__checkbox-fake-svg
+                use(xlink:href='assets/images/sprite.svg#check')
+        .login__text Я человек
+.login__sure
+    .login__text.login__text--bold Вы точно не робот?
+.login__sure
+    label.login__label
+        input(type="radio" name ='are-you-sure' value='yes').login__input-radio
+        .login__radio-fake
+        .login__text Да 
+    label.login__label
+        input(type="radio" name ='are-you-sure' value='no' checked).login__input-radio 
+        .login__radio-fake
+        .login__text Не уверен
+.login__btns
+        .login__btn.resume 
+            p На главную
+        .login__btn.authorize 
+            p Войти

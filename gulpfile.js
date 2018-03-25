@@ -34,7 +34,7 @@ const paths = {
         dest: 'build/assets/images/'
     },
     scripts: {
-        src: 'src/scripts/**/*.js',
+        src: 'src/scripts/app.js',
         dest: 'build/assets/scripts/'
     },
     fonts: {
@@ -73,7 +73,7 @@ function clean() {
 }
 
 function scripts() {
-    return gulp.src('src/scripts/app.js')
+    return gulp.src(paths.scripts.src)
         .pipe(gulpWebpack(webpackConfig, webpack)) 
         .pipe(gulp.dest(paths.scripts.dest));
 }

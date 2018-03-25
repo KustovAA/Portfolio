@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
+    mode: 'development',
     output: {
         filename: 'bundle.js'
     },
@@ -18,7 +19,6 @@ const config = {
         new UglifyJSPlugin({
             sourceMap: true
         }),
-
     ]
 };
 

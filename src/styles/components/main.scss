@@ -2,19 +2,35 @@
     height: 100vh;
     min-height: 568px;
     flex-flow: column nowrap;
-    background-size: cover;
-    background-image: url(../images/layout_desktop.png);
-    
-    @include laptop {
-        background-image: url(../images/layout_laptop.png);
-    }
+}
 
-    @include ipad {
-        background-image: url(../images/layout_ipad.png);
-    }
+.main__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 110vh;
+    transform: translateZ(0);
 
-    @include iphone {
-        background-image: url(../images/layout_iphone.png);
+    &-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.main__layout {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    text-align: center;
+    will-change: transform;
+
+    &-svg {
+        width: 100%;
+        fill: rgba(#cdc6cb, 0.2);
     }
 }
 
@@ -38,24 +54,13 @@
     }
 }
 
-.header__menu-icon {
-    width: 25px;
-    height: 25px;
-    fill: #fff;
-    cursor: pointer;
-}
-
-.header__menu-svg {
-    width: 100%;
-    height: 100%;
-}
-
 .hero {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     margin-top: auto;
     margin-bottom: auto;
+    will-change: transform;
 }
 
 .hero__photo {

@@ -16,7 +16,7 @@
             link: 'https://linkedin.com/'
         }
     ]
-section.section.main#main
+section.section.main
     header.header
         ul.header__socials-list
             each social in socials
@@ -24,9 +24,43 @@ section.section.main#main
                     a(href=social.link target='_blank').header__socials-link
                         svg.header__socials-icon(width=`${social.dimensions.w}` height=`${social.dimensions.h}`)
                             use(xlink:href=`assets/images/sprite.svg#${social.name}`)
-        .header__menu-icon
-            svg.header__menu-svg
-                use(xlink:href='assets/images/sprite.svg#hamburger')
+    
+    .hamburger-menu__btn
+        .hamburger-bnt
+            span.hamburger-bnt__line
+            span.hamburger-bnt__line
+            span.hamburger-bnt__line
+    .hamburger-menu__ham-menu
+        nav.ham-menu
+            - 
+                var items = [
+                    {
+                        name: 'Мои работы', 
+                        href:'works.html'
+                    },
+                    {
+                        name:'Блог',
+                        href: 'blog.html'
+                    },
+                    {
+                        name:'Обо мне',
+                        href: 'about.html'
+                    },
+                    {
+                        name:'Авторизация',
+                        href: 'index.html'
+                    }
+                    ]
+            ul.ham-menu__list
+                each item in items
+                    li.ham-menu__item
+                        a(href=`${item.href}`).ham-menu__link= item.name
+
+    .main__bg
+        img.main__bg-img(src="assets/images/layout_desktop.png", alt="")
+    .main__layout
+        svg.main__layout-svg
+            use(xlink:href='assets/images/sprite.svg#portfolio_header')
     .hero
         .hero__photo
         block hero__text
