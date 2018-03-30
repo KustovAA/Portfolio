@@ -34,11 +34,12 @@
     width: 270px;
 }
 
-.footer__menu-item {
+.footer__menu-link {
     font-size: 13px;
     font-family: "Roboto";
     color: rgb(255, 255, 255);
     line-height: 1.822;
+    text-decoration: none;
 }
 
 .footer__socials-list {
@@ -56,12 +57,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        border-color: #fff;
+
+        .footer__socials-icon {
+            fill: #fff;
+        }
+    }
+}
+
+.footer__socials-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer__socials-icon {
     width: 20px;
     height: 20px;
-    fill: #aaadaf;
+    fill: #aaadaf;  
 } 
 
 .footer__border {

@@ -42,7 +42,7 @@
 							<li class="hero-nav__page-item"><a class="hero-nav__page-item-link" href="blog.html">Блог</a></li>
 						</ul>
 					</div>
-					<div class="hero__login login">
+					<form class="hero__login login" action="">
 						<div class="login__title-wrap">
 							<div class="title-rect"></div>
 							<div class="login__title">Авторизуйтесь</div>
@@ -55,6 +55,9 @@
 								</svg>
 							</div>
 							<input class="login__input" type="text" placeholder="Логин"/>
+							<div class="login__popup"> 
+								<p>Введите логин</p>
+							</div>
 						</div>
 						<div class="login__input-wrap">
 							<div class="login__logo">
@@ -63,6 +66,9 @@
 								</svg>
 							</div>
 							<input class="login__input" type="text" placeholder="Пароль"/>
+							<div class="login__popup"> 
+								<p>Введите пароль</p>
+							</div>
 						</div>
 						<div class="login__checkbox-wrap">
 							<label class="login__label"> 
@@ -94,11 +100,11 @@
 							<div class="login__btn resume"> 
 								<p>На главную</p>
 							</div>
-							<div class="login__btn authorize"> 
+							<button class="login__btn authorize" type="submit"> 
 								<p>Войти</p>
-							</div>
+							</button>
 						</div>
-					</div>
+					</form>
 				</div>
 				<div class="welcome__footer">© Кустов Андрей | создано с любовью в Loftschool | 2018</div>
 			</section>

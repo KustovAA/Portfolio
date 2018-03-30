@@ -15,29 +15,7 @@ block content
                 use(xlink:href='assets/images/sprite.svg#works_header')
             .works__title Мои работы
             .title-rect
-        .works__slider-wrap
-            .works__slider-main.works__slider-main--ipad
-            .works__slider-left
-                .works__slider-title-wrap
-                    .title-rect
-                    .works__slider-title Сайт школы онлайн образования
-                    .title-rect
-                .works__slider-desc 
-                    p HTML, CSS, JavaScript
-                .works__slider-btn
-                    svg.works__slider-btn-svg
-                        use(xlink:href='assets/images/sprite.svg#link')
-                    p Посмотреть сайт
-            .works__slider-right
-                .works__slider-main
-                .works__slider-side
-                    .works__slider-side-overlay
-                    .works__slider-side-left
-                            svg.arrow-icon.arrow-icon-down.arrow-icon-white
-                                use(xlink:href='assets/images/sprite.svg#arrow_down')
-                    .works__slider-side-right
-                            svg.arrow-icon.arrow-icon-up.arrow-icon-white
-                                use(xlink:href='assets/images/sprite.svg#arrow_down')
+        include ../components/slider
     section.section.feedback
         .works__title-wrap.feedback__title-wrap
             .title-rect
@@ -90,6 +68,6 @@ block content
                     .form__btn.form__btn--right 
                         p Очистить
         .arrow
-            svg.arrow-icon.arrow-icon-up
+            svg.arrow-svg.arrow-icon-up
                 use(xlink:href='assets/images/sprite.svg#arrow_down')
                 

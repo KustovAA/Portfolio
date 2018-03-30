@@ -31,40 +31,6 @@
     z-index: 200;
 }
 
-.nav {
-    position: absolute;
-    top: 70px;
-    left: 115px;
-
-    @media screen and (max-width: 1500px) {
-        left: 40px;
-    }
-
-    @media screen and (max-width: 1100px) {
-        left: 20px;
-    }
-
-    @include ipad {
-        display: none;
-    }
-}
-
-.nav__item-name {
-    height: 42px;
-    border-right: 3px solid transparent;
-    font-size: 16px;
-    font-family: "Roboto";
-    color: rgb(69, 90, 100);
-    line-height: 1.625;
-    text-align: right;
-    padding-right: 20px;
-
-    &.active {
-        border-right: 3px solid rgb(0, 191, 165);
-        color: rgb(0, 191, 165);
-    }
-}
-
 .blog {
     display: flex;
     justify-content: center;

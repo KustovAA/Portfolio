@@ -37,6 +37,7 @@ ul {
     }
 }
 
+
 .wrapper {
     width: 100%;
     position: relative;
@@ -78,6 +79,11 @@ ul {
         height: 20px;
         fill: #cdc6cb;
         cursor: pointer;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 150;
 
         &-up {
             transform: rotate(180deg);
@@ -90,5 +96,12 @@ ul {
         &-white {
             fill: rgb(255, 255, 255);
         }
+    }
+
+    &-svg {
+        width: 30px;
+        height: 20px;
+        fill: #cdc6cb;
+        cursor: pointer;
     }
 }

@@ -35,6 +35,75 @@
     height: 45px;
     display: flex;
     margin-top: 20px;
+    position: relative;
+
+    &.error {
+        .login__input {
+            border: 1px lighten(red, 15%) solid;
+        }
+
+        .login__logo {
+            &-svg {
+                fill: lighten(red, 15%);
+            }
+        }
+
+        .login__popup {
+            right: 0;
+            left: inherit;
+            opacity: 1;
+        }
+    }
+
+    &.correct {
+        .login__input {
+            border: 1px lighten(green, 15%) solid;
+        }
+
+        .login__logo {
+            &-svg {
+                fill: lighten(green, 15%);
+            }
+            
+        }
+    }    
+}
+
+.login__popup {
+    width: 85%;
+    height: 70px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: -99999px;
+    opacity: 0;
+    background: lighten(red, 15%);
+    z-index: 100;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    transition: opacity 2s;
+
+    p {
+        color: white;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        width: 0;
+        height: 0;
+        bottom: 100%;
+        border: 10px solid lighten(red, 15%);
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-right-color: transparent;
+    }
 }
 
 .login__input {
@@ -158,6 +227,9 @@
     transition: background-color .4s;
     cursor: pointer;
     z-index: 100;
+    outline: none;
+    border: none;
+    padding: 0;
 
     &:hover {
         background-color: rgb(0, 150, 136);
@@ -177,5 +249,9 @@
 
     .authorize {
         border-radius: 0px 0px 5px 0px;
+        p {
+            margin-top: 15px;
+            margin-bottom: 17px;
+        }
     }
-}    
+}

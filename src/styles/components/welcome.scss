@@ -2,12 +2,7 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    // background-size: cover;
-    // background-image: url(../images/layout_welcome.png);
-
-//     @include laptop {
-//         background-image: url(../images/layout_laptop.png);
-//     }
+    overflow: hidden;
 
     @include ipad {
         background-image: url(../images/layout_ipad.png);
@@ -129,6 +124,7 @@
     text-align: center;
     transition: background-color .4s;
     border-left: 2px solid rgba(222, 227, 231, 0.5);
+    position: relative;
 
     &-link {
         text-decoration: none;
@@ -136,6 +132,11 @@
         font-size: 16px;
         font-family: "Roboto";
         line-height: 2.75;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
     }
 
     &:hover {

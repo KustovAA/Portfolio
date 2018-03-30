@@ -1,0 +1,35 @@
+.slider
+    .slider__main.slider__main--ipad
+        ul.slider__main-list
+            - for (var i=1; i<=4; i++)
+                li.slider__main-item(style=`background-image: url(assets/images/work-${i}.png)`)
+    .slider__left
+        .slider__title-wrap
+            .title-rect
+            .slider__title Сайт 2
+            .title-rect
+        .slider__desc 
+            p HTML, CSS, JavaScript
+        .slider__btn
+            svg.slider__btn-svg
+                use(xlink:href='assets/images/sprite.svg#link')
+            p Посмотреть сайт
+    .slider__right
+        .slider__main
+            ul.slider__main-list
+                - for (var i=1; i<=4; i++)
+                    li.slider__main-item(style=`background-image: url(assets/images/work-${i}.png)`)
+        .slider__side
+            .slider__side-overlay
+            .slider__side-left
+                ul.slider__side-left-list
+                    - for (var i=1; i<=4; i++)
+                        li.slider__side-left-item(style=`background-image: url(assets/images/work-${i}.png)`)
+                svg.arrow-icon.arrow-icon-down.arrow-icon-white#leftArr
+                    use(xlink:href='assets/images/sprite.svg#arrow_down')
+            .slider__side-right
+                ul.slider__side-right-list
+                    - for (var i=1; i<=4; i++)
+                        li.slider__side-right-item(style=`background-image: url(assets/images/work-${i}.png)`)
+                svg.arrow-icon.arrow-icon-up.arrow-icon-white#rightArr
+                    use(xlink:href='assets/images/sprite.svg#arrow_down')

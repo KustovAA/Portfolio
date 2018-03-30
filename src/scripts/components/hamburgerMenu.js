@@ -1,6 +1,6 @@
 let hamburgerMenu = (() => {
     let hamBtn = document.querySelector('.hamburger-bnt'),
-        menuItem = [].slice.call(document.querySelectorAll('.ham-menu__item')),
+        menuItem = [...document.querySelectorAll('.ham-menu__item')],
         menu = document.body.querySelector('.ham-menu');
 
     let menuAct = e => {

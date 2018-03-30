@@ -18,6 +18,38 @@
         display: block;
         width: 100%;
         height: 100%;
+
+        &--ipad {
+            display: none;
+        }
+
+        &--iphone {
+            display: none;
+        }
+
+        @include ipad {
+            display: none;
+
+            &--ipad {
+                display: block;
+            }
+    
+            &--iphone {
+                display: none;
+            }
+        }
+
+        @include iphone {
+            display: none;
+
+            &--ipad {
+                display: none;
+            }
+    
+            &--iphone {
+                display: block;
+            }
+        }
     }
 }
 
@@ -44,6 +76,7 @@
     display: flex;
     justify-content: space-between;
     width: 150px;
+    z-index: 200;
 }
 
 .header__socials-icon {

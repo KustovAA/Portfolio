@@ -13,15 +13,34 @@ html(lang="en")
             include main
             block content
             .footer
-                - var points = ['Мои работы', 'Обо мне', 'Блог', 'Авторизация']
+                - 
+                    var points = [
+                        {
+                            name: 'Мои работы', 
+                            link: 'works.html'
+                        }, 
+                        {
+                            name: 'Обо мне', 
+                            link: 'about.html'
+                        },
+                        {
+                            name: 'Блог', 
+                            link: 'blog.html'
+                        },
+                        {
+                            name: 'Авторизация', 
+                            link: 'index.html'
+                        }
+                    ]
                 .footer__left
                     ul.footer__menu-list
                         each point in points
-                            li.footer__menu-item=point
+                            li.footer__menu-item
+                                a(href=`${point.link}`).footer__menu-link= point.name
                     ul.footer__socials-list
                         each social in socials
                             li.footer__socials-item
-                                a(href=social.link target='_blank').header__socials-link
+                                a(href=social.link target='_blank').footer__socials-link
                                     svg.footer__socials-icon
                                         use(xlink:href=`assets/images/sprite.svg#${social.name}`)
                 .footer__border

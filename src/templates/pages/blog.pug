@@ -18,28 +18,11 @@ block content
             polygon(points='0,0 0,100 500,100')
         svg.triangle.triangle_fill_white(fill='#fff' viewbox="0 0 1000 100" preservAspectRatio="none")
             polygon(points='500,100 1000,0 1000,100')
-        nav.nav
-            - 
-                var articles = [
-                    {
-                        name: 'Самое важное в SASS',
-                        date: '14 марта 2018',
-                        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores expedita cumque, asperiores quam ipsa animi officiis odit repellendus. Quis quia iste in quisquam dolores soluta aut quos rerum consectetur hic.Saepe ducimus voluptates, autem porro a quo libero culpa provident laboriosam tempora voluptatum, facilis at! Ut, consectetur? Sed aliquid sequi repellendus dolorem, labore a at molestiae laboriosam impedit quia nesciunt.Numquam quibusdam consequuntur enim placeat officia a quaerat facere provident incidunt. Assumenda quasi consectetur aliquid at expedita repudiandae placeat nobis doloribus corrupti. Vel voluptates amet placeat facere rem reiciendis voluptatem.Aspernatur, ipsum enim. Similique ullam neque assumenda beatae quisquam qui sequi veritatis officiis, debitis blanditiis? Veniam minima officiis molestias odit dolor beatae ipsam alias incidunt consequatur, eligendi aspernatur commodi dolore.Nemo quia sunt neque quo est quidem mollitia quasi molestiae, nam ullam, commodi recusandae quam facere ipsam sit eaque dolore. Architecto dolorem fugit velit ratione atque saepe officiis exercitationem consequuntur!'
-                    }, 
-                    {
-                        name: 'Почему я выбрал Pug',
-                        date: '14 марта 2018',
-                        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores expedita cumque, asperiores quam ipsa animi officiis odit repellendus. Quis quia iste in quisquam dolores soluta aut quos rerum consectetur hic.Saepe ducimus voluptates, autem porro a quo libero culpa provident laboriosam tempora voluptatum, facilis at! Ut, consectetur? Sed aliquid sequi repellendus dolorem, labore a at molestiae laboriosam impedit quia nesciunt.Numquam quibusdam consequuntur enim placeat officia a quaerat facere provident incidunt. Assumenda quasi consectetur aliquid at expedita repudiandae placeat nobis doloribus corrupti. Vel voluptates amet placeat facere rem reiciendis voluptatem.Aspernatur, ipsum enim. Similique ullam neque assumenda beatae quisquam qui sequi veritatis officiis, debitis blanditiis? Veniam minima officiis molestias odit dolor beatae ipsam alias incidunt consequatur, eligendi aspernatur commodi dolore.Nemo quia sunt neque quo est quidem mollitia quasi molestiae, nam ullam, commodi recusandae quam facere ipsam sit eaque dolore. Architecto dolorem fugit velit ratione atque saepe officiis exercitationem consequuntur!'
-                    }
-                ]
-            ul.nav__list
-                each article in articles
-                    li.nav__item
-                        .nav__item-name= article.name
+        include ../components/asideBlog
         .blog__content
             ul.blog__article-list
-                each article in articles
-                    li.blog__article-item
+                each article, ndx in articles
+                    li.blog__article-item(data-section = `article${ndx+1}`)
                         .blog__article-name= article.name
                         .blog__article-date= article.date
                         .blog__article-text= article.text

@@ -61,7 +61,7 @@ html(lang="en")
                             each page in pages
                                 li.hero-nav__page-item
                                     a(href=`${page.link}.html`).hero-nav__page-item-link= page.name
-                    .hero__login.login
+                    form(action="").hero__login.login
                         include ../components/login
                 .welcome__footer © Кустов Андрей | создано с любовью в Loftschool | 2018
 

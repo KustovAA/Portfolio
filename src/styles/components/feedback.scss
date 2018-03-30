@@ -3,7 +3,14 @@
     background: url(../images/bg-about.png) no-repeat;
     flex-direction: column;
     align-items: center;
-    background-position-y: 100px;
+    background-size: cover;
+    background-position-y: 50px;
+    
+
+    @include desktop {
+        background-size: inherit;
+        background-position-y: 100px;
+    }
 
     @include iphone {
         height: 1477px;

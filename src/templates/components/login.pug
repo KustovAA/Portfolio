@@ -7,11 +7,15 @@
         svg.login__logo-svg(width='15' height='17')
             use(xlink:href='assets/images/sprite.svg#login')
     input.login__input(type="text" placeholder="Логин")
+    .login__popup 
+        p Введите логин
 .login__input-wrap
     .login__logo
         svg.login__logo-svg(width='18' height='17')
             use(xlink:href='assets/images/sprite.svg#password')
     input.login__input(type="text" placeholder="Пароль")
+    .login__popup 
+        p Введите пароль
 .login__checkbox-wrap
     label.login__label 
         input(type="checkbox" checked).login__checkbox
@@ -33,5 +37,5 @@
 .login__btns
         .login__btn.resume 
             p На главную
-        .login__btn.authorize 
+        button(type="submit").login__btn.authorize 
             p Войти

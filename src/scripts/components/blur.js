@@ -11,7 +11,6 @@ let blur = (() => {
                     blurCSS = bg.style;
     
                 blurCSS.backgroundSize = `${bgWidth} auto`;
-                console.log(`${bgWidth} auto`);
                 blurCSS.backgroundPosition = `${posLeft}px ${posTop}px`;
             }
             window.onresize = init();
