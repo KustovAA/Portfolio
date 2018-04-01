@@ -1,0 +1,29 @@
+.tabs {
+    width: 100%;
+    height: 60px;
+}
+
+.list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgb(240, 239, 233);
+}
+
+.item {
+    width: 180px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 3px solid rgb(255, 255, 255);
+    font-size: 16px;
+    font-family: "Roboto";
+    color: rgba(69, 90, 100, 0.8);
+    font-weight: 500;
+    cursor: pointer;
+
+    &.active {
+        background: rgb(255, 255, 255);
+    }
+}  
