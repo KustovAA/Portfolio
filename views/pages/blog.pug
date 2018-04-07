@@ -1,0 +1,36 @@
+extends ../common/page
+
+block title
+    title= title
+
+block hero__text
+    .hero__title-wrap
+        .title-rect
+        svg.hero__svg-bg
+            use(xlink:href='assets/images/sprite.svg#blog_header')
+        .hero__title Блог
+        .title-rect
+    .hero__description Статьи, которые я написал
+
+block content
+    section.section.blog
+        svg.triangle.triangle_fill_white(fill='#fff' viewbox="0 0 1000 100" preservAspectRatio="none")
+            polygon(points='0,0 0,100 500,100')
+        svg.triangle.triangle_fill_white(fill='#fff' viewbox="0 0 1000 100" preservAspectRatio="none")
+            polygon(points='500,100 1000,0 1000,100')
+        include ../components/asideBlog
+        .blog__content
+            if (articles)
+                ul.blog__article-list
+                    each article, ndx in articles
+                        - 
+                            var date = new Date(article.date).toLocaleDateString('ru', { 
+                                            year: 'numeric', 
+                                            month: '2-digit', 
+                                            day: '2-digit'
+                                            })
+                        li.blog__article-item(data-section = `article${ndx+1}`)
+                            .blog__article-name= article.name
+                            .blog__article-date= date
+                            .blog__article-text= article.text
+    .blog__empty

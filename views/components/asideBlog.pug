@@ -1,0 +1,5 @@
+aside.aside
+    ul.aside__list
+        each article, ndx in articles
+            li.aside__item
+                a(href=`#article${ndx+1}`).aside__item-name= article.name

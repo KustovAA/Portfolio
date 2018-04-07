@@ -90,3 +90,43 @@ span {
         cursor: pointer;
     }
 }  
+
+
+.article__list {
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    z-index: 100;
+    
+}
+
+.article__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+
+    .name {
+        font-size: 21px;
+        font-family: "Roboto";
+        margin-right: 100px;
+        color: rgb(69, 90, 100);
+    }
+}
+
+.del {
+    width: 50px;
+    height: 50px;
+    background: darken(red, 10%);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+        font-size: 35px;
+        font-family: "Roboto";
+        color: cornflowerblue;
+    }
+}

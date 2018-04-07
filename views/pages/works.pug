@@ -1,7 +1,7 @@
 extends ../common/page
 
 block title
-    title Мои работы
+    title= title
 
 block content
     section.section.works
@@ -52,7 +52,7 @@ block content
                             .feedback__comments-hero-info
                                 .feedback__comments-hero-info-name= comment.info.name
                                 .feedback__comments-hero-info-post= comment.info.post
-        form.form
+        form.form(action='/mail', method='POST')
             .form__wrapper
                 .form__blur
                 .form__title-wrap

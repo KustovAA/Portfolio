@@ -25,7 +25,6 @@ let validatorLogin = (() => {
     const handler = () => {
         if (submit) {
             submit.addEventListener('click', e => {
-                e.preventDefault();
                 loginPopup.textContent = validate(login.value);
                 if (loginPopup.textContent) {
                     loginWrap.classList.add('error');

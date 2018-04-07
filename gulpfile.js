@@ -1,153 +1,147 @@
-const gulp = require('gulp');
-const pug = require('gulp-pug');
+const gulp = require("gulp");
 
-const sass = require('gulp-sass');
-const rename = require('gulp-rename');
-const sourcemaps = require('gulp-sourcemaps');
+const $gp = require("gulp-load-plugins")();
 
-const svgSprite = require('gulp-svg-sprite');
-const svgmin = require('gulp-svgmin');
-const cheerio = require('gulp-cheerio');
-const replace = require('gulp-replace');
+const browserSync = require("browser-sync").create();
+const reload = browserSync.reload;
+const webpack = require("webpack");
+const webpackConfig = require("./webpack.config.js");
+const moduleImporter = require("sass-module-importer");
+const del = require("del");
 
-const del = require('del');
+const SRC_DIR = "src";
+const DIST_DIR = "build/assets";
+const ROOT_PATH = `./build`;
 
-const browserSync = require('browser-sync').create();
+gulp.task("styles", () => {
+  return gulp
+    .src(`${SRC_DIR}/styles/app.scss`)
+    .pipe($gp.plumber())
+    .pipe($gp.sassGlob())
+    .pipe($gp.sourcemaps.init())
+    .pipe(
+      $gp.sass({
+        outputStyle: "compressed",
+        includePaths: require('node-normalize-scss').includePaths,
+        importer: moduleImporter()
+      })
+    )
+    .pipe(
+      $gp.autoprefixer({
+        browsers: ["last 2 versions"],
+        cascade: false
+      })
+    )
+    .pipe($gp.sourcemaps.write())
+    .pipe($gp.rename({ suffix: ".min" }))
+    .pipe(gulp.dest(`${DIST_DIR}/styles/`))
+    .pipe(reload({ stream: true }));
+});
 
-const gulpWebpack = require('gulp-webpack');
-const webpack = require('webpack');
-const webpackConfig = require('./webpack.config.js');
+gulp.task("fonts", () => {
+  return gulp.src(`${SRC_DIR}/fonts/**`).pipe(gulp.dest(`${DIST_DIR}/fonts/`));
+});
 
-const paths = {
-    root: './build',
-    templates: {
-        pages: 'src/templates/pages/*.pug',
-        src: 'src/templates/**/*.pug'
-    },
-    styles: {
-        src: 'src/styles/**/*.scss',
-        dest: 'build/assets/styles/'
-    },    
-    images: {
-        src: 'src/images/img/**/*.*',
-        svg: 'src/images/svg/*.svg',
-        dest: 'build/assets/images/'
-    },
-    scripts: {
-        src: 'src/scripts/app.js',
-        dest: 'build/assets/scripts/'
-    },
-    fonts: {
-        src: 'src/fonts/**/*.*',
-        dest: 'build/assets/fonts'
-    }
-}
+gulp.task("clean", () => {
+  return del(ROOT_PATH);
+});
 
-function templates() {
-    return gulp.src(paths.templates.pages)
-        .pipe(pug({ pretty: '\t' }))
-        .pipe(gulp.dest(paths.root));
-}
+gulp.task("scripts", () => {
+  return gulp
+    .src(`${SRC_DIR}/scripts/app.js`)
+    .pipe($gp.plumber())
+    .pipe($gp.webpack(webpackConfig, webpack))
+    .pipe(gulp.dest(`${DIST_DIR}/scripts`))
+    .pipe(reload({ stream: true }));
+});
 
-function styles() {
-    return gulp.src('./src/styles/app.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass(
-            {
-                outputStyle: 'compressed', 
-                includePaths: require('node-normalize-scss').includePaths
-            }
-        ))
-        .pipe(sourcemaps.write())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(paths.styles.dest))
-}
-
-function fonts() {
-    return gulp.src(paths.fonts.src)
-        .pipe(gulp.dest(paths.fonts.dest))
-}
-
-function clean() {
-    return del(paths.root);
-}
-
-function scripts() {
-    return gulp.src(paths.scripts.src)
-        .pipe(gulpWebpack(webpackConfig, webpack)) 
-        .pipe(gulp.dest(paths.scripts.dest));
-}
-
-function watch() {
-    gulp.watch(paths.styles.src, styles);
-    gulp.watch(paths.templates.src, templates);
-    gulp.watch(paths.images.src, images);
-    gulp.watch(paths.scripts.src, scripts);
-}
-
-function server() {
-    browserSync.init({
-        server: paths.root
+gulp.task("nodemon", done => {
+  let started = false;
+  $gp
+    .nodemon({
+      script: "server.js",
+      env: { NODE_ENV: "development" },
+      watch: "server.js"
+    })
+    .on("start", () => {
+      if (started) return;
+      done();
+      started = true;
     });
-    browserSync.watch(paths.root + '/**/*.*', browserSync.reload);
-}
+});
 
-function images() {
-    return gulp.src(paths.images.src)
-        .pipe(gulp.dest(paths.images.dest));
-}
+gulp.task(
+  "server",
+  gulp.series("nodemon", done => {
+    browserSync.init({
+      proxy: "http://localhost:3000",
+      port: 8080,
+      open: false
+    });
+  })
+);
 
-function svg(done) {
-    const prettySvgs = () => {
-      return gulp
-        .src(paths.images.svg)
-        .pipe(
-          svgmin({
-            js2svg: {
-              pretty: true
-            }
-          })
-        )
-        .pipe(
-          cheerio({
-            run($) {
-              $("[fill], [stroke], [style], [width], [height]")
-                .removeAttr("fill")
-                .removeAttr("stroke")
-                .removeAttr("style")
-                .removeAttr("width")
-                .removeAttr("height");
-            },
-            parserOptions: { xmlMode: true }
-          })
-        )
-        .pipe(replace("&gt;", ">"));
-    };
-  
-    prettySvgs()
+gulp.task("svg", done => {
+  const prettySvgs = () => {
+    return gulp
+      .src(`${SRC_DIR}/images/svg/*.svg`)
       .pipe(
-        svgSprite({
-          mode: {
-            symbol: {
-              sprite: "../sprite.svg"
-            }
+        $gp.svgmin({
+          js2svg: {
+            pretty: true
           }
         })
       )
-      .pipe(gulp.dest(paths.images.dest));
+      .pipe(
+        $gp.cheerio({
+          run($) {
+            $("[fill], [stroke], [style], [width], [height]")
+              .removeAttr("fill")
+              .removeAttr("stroke")
+              .removeAttr("style")
+              .removeAttr("width")
+              .removeAttr("height");
+          },
+          parserOptions: { xmlMode: true }
+        })
+      )
+      .pipe($gp.replace("&gt;", ">"));
+  };
 
-    done();
-}
+  prettySvgs()
+    .pipe(
+      $gp.svgSprite({
+        mode: {
+          symbol: {
+            sprite: "../sprite.svg"
+          }
+        }
+      })
+    )
+    .pipe(gulp.dest(`${DIST_DIR}/images`));
 
-exports.templates = templates;
-exports.styles = styles;
-exports.clean = clean;
-exports.images = images;
-exports.svg = svg;
-exports.fonts = fonts;
+  done();
+});
 
-gulp.task('default', gulp.series(
-    clean,
-    gulp.parallel(styles, templates, images, scripts, svg, fonts),
-    gulp.parallel(watch, server)
-));
+gulp.task("images", () => {
+  return gulp
+    .src(`${SRC_DIR}/images/img/**/*.*`)
+    .pipe(gulp.dest(`${DIST_DIR}/images/`));
+});
+
+gulp.task("watch", () => {
+  gulp.watch(`${SRC_DIR}/styles/**/*.scss`, gulp.series("styles"));
+  gulp.watch(`${SRC_DIR}/images/**/*.*`, gulp.series("images"));
+  gulp.watch(`${SRC_DIR}/scripts/**/*.*`, gulp.series("scripts"));
+  gulp.watch(`${SRC_DIR}/fonts/*`, gulp.series("fonts"));
+  gulp.watch(`views/pages/*`).on('change', reload);
+});
+
+gulp.task(
+  "default",
+  gulp.series(
+    "clean",
+    gulp.parallel("styles", "images", "fonts", "scripts", "svg"),
+    gulp.parallel("watch", "server")
+  )
+);

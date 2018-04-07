@@ -7,8 +7,10 @@ import flip from './components/flip.js';
 import slider from './components/slider.js';
 import blogNavigation from './components/blogNavigation.js';
 import validatorLogin from './components/validatorLogin.js';
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 
 window.onload = function() {
     parallaxWelcome.handler();
@@ -22,6 +24,7 @@ window.onload = function() {
     validatorLogin.handler();
 
     if (document.getElementById('app')) {
+        Vue.use(VueAxios, axios);
         new Vue({
             el: '#app',
             render: h => h(App)

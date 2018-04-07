@@ -1,7 +1,7 @@
 extends ../common/page
 
 block title
-    title Главная
+    title= title
 
 block content
     section.section.about            
@@ -38,21 +38,6 @@ block content
                         но я также знаком и могу решать не сложные задачи на Backend.
                         Но давайте по порядку.
             ul.about__skills
-                - 
-                    var skills = [
-                        {
-                            title: 'Frontend',
-                            techs: ['HTML5', 'CSS3', 'JavaScript']
-                        }, 
-                        {
-                            title: 'Backend',
-                            techs: ['Node.js', 'Mongo.db', 'PHP', 'MySQL']
-                        }, 
-                        {
-                            title: 'Workflow',
-                            techs: ['Git', 'Gulp', 'Webpack']
-                        }
-                    ]
                 each skill in skills
                     li.about__skill
                         .about__skill-title= skill.title

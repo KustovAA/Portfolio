@@ -1,0 +1,21 @@
+{
+    "db": {
+        "host": "localhost",
+        "port": "27017",
+        "name": "portfoliodb",
+        "user": "",
+        "password": ""
+    },
+    "mail": {
+        "subject": "Сообщение с сайта",
+        "smtp": {
+            "host": "smtp.gmail.com",
+            "port": 465,
+            "secure": true,
+            "mail": {
+                "user": "kustovforwork@gmail.com"
+            }
+        }
+    },
+    "server": "http://localhost:8080"
+}
