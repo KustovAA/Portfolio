@@ -3,6 +3,7 @@ const pug = require('gulp-pug');
 
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 
 const svgSprite = require('gulp-svg-sprite');
@@ -58,6 +59,12 @@ function styles() {
                 includePaths: require('node-normalize-scss').includePaths
             }
         ))
+        .pipe(
+            autoprefixer({
+              browsers: ["last 2 versions"],
+              cascade: false
+            })
+        )
         .pipe(sourcemaps.write())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(paths.styles.dest))
